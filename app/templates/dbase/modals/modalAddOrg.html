@@ -1,0 +1,63 @@
+<div class="modal" id="modalAdd" data-bs-toggle="modalAdd" aria-hidden="true"
+    style="overflow-y: scroll; display: none; z-index: 100000;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Добавить организацию</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <form id='addOrg'>
+                    <div class="mb-3">
+                        <label class="form-label">Наименование организации</label>
+                        <input type="name" required id="name_org" class="form-control">
+                    </div>
+                    <label class="form-label">ИНН</label>
+                    <div class="mb-3 input-group">
+                        <input type="text" id="inn" required maxlength="12" class="form-control">
+                        <button type="button" id="by_inn" class="btn btn-primary">Заполнить по ИНН</button>
+                        <div class="text-form text-danger" id='inn_error' style="display: none">
+                            Пожалуйста, введите верный ИНН.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">ОГРН</label>
+                        <input type="name" id="ogrn" required class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">КПП</label>
+                        <input type="name" id="kpp" required class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Адрес</label>
+                        <input type="name" id="address" required class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">СРО</label>
+                        <input type="name" id="SRO" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Св-во о регистрации</label>
+                        <input type="name" id="svvoreg" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Лицензия</label>
+                        <input type="name" id="licence" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Тип организации</label>
+                        <select class="js-example-basic-multiple" id="type" name="state">
+                            <option value="AL">Alabama</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeAdd">Закрыть</button>
+                <input class="btn btn-primary" type="submit" name="submit" value="Добавить">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{%extends "base.html" %}
+{%block content %}
+<div class="card ">
+    <div class="card-content">
+        <div class="content">
+            <div class="card ">
+                <a class="btn btn-primary" role="button" onclick="add_object()">Добавить объект</a>
+                <div class="card-content">
+                    <div class="content">
+                        <table id="TableObjects" class="display ">
+                            <thead>
+                                <tr>
+                                    <th>Объекты</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body_table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%include "dbase/modals/modalAddObj.html"%}
+{%include "dbase/modals/modalAddOrg.html"%}
+
+
+
+<script type="text/javascript" src="{{url_for('static', filename='view_objects.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='organization.js')}}"></script>
+
+{%endblock%}

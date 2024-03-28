@@ -1,0 +1,52 @@
+<div class="modal" id="Object" data-bs-toggle="modalAdd" aria-hidden="true" style="overflow-y: scroll; display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Добавить объект</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <form id='add_object'>
+                    <div class="mb-3">
+                        <label class="form-label">Наименование объекта</label>
+                        <input type="name" required id="name_obj" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Адрес объекта</label>
+                        <input type="name" required id="address_obj" class="form-control">
+                    </div>
+                    <label class="form-label">Застройщик</label>
+
+                    <div class="mb-3 input-group">
+                        <select class="Org_select" id="zastroyshik" name="state">
+                        </select>
+                        <button type="button" id="modalOpenAdd" class="btn btn-primary open">+</button>
+
+                    </div>
+
+                    <label class="form-label">Лицо, осуществляющее строительство</label>
+
+                    <div class="mb-3 input-group">
+                        <select class="Org_select" id="lico_os_str" name="state">
+                        </select>
+                        <button type="button" id="modalOpenAdd" class="btn btn-primary open">+</button>
+
+                    </div>
+                    <label class="form-label">Лицо, осуществляющее подготовку проектной документации</label>
+
+                    <div class="mb-3 input-group">
+                        <select class="Org_select" id="lico_os_proekt" name="state">
+                        </select>
+                        <button type="button" id="modalOpenAdd" class="btn btn-primary open">+</button>
+
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeAdd">Закрыть</button>
+                <input class="btn btn-primary" type="submit" name="submit" value="Добавить">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

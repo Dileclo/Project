@@ -1,0 +1,32 @@
+{%extends "base.html" %}
+{%block content %}
+<div class="card ">
+    <div class="card-content">
+        <div class="content">
+            <h1 class="modal-title fs-5">Объект: <label for="" id = "name_org">{{res.name}}</label></h1></h1>
+
+            <div class="card ">
+
+                <a class="btn btn-primary" role="button" onclick="add_work()">Добавить работы на объекте</a>
+                <div class="card-content">
+                    <div class="content">
+                        <table id="TableWorks" class="display ">
+                            <thead>
+                                <tr>
+                                    <th>Работы</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body_table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%include "dbase/modals/modalAddWork.html"%}
+
+<script type="text/javascript" src="{{url_for('static', filename='objects.js')}}"></script>
+
+{%endblock%}

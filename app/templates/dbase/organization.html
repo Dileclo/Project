@@ -1,0 +1,39 @@
+{%extends "base.html" %}
+{%block content %}
+<div class="columns">
+    <div class="column">
+        <div class="card ">
+            <div class="card-content">
+                <div class="content">
+                    <button type="button" class="btn btn-primary open" id="modalOpenAdd" style="margin-bottom: 5px;">Добавить
+                        организацию</button>
+
+                    <table id="myTable" class="display ">
+                        <thead>
+                            <tr>
+                                <th>Наименование</th>
+                                <th>ИНН</th>
+                            </tr>
+                        </thead>
+                        <tbody id="body_table">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%include "dbase/modals/modalAddOrg.html"%}
+
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-multiple').select2({
+            theme: "bootstrap-5",
+            dropdownParent: $("#modalAdd")
+        });
+    });
+</script>
+<script type="text/javascript" src="{{url_for('static', filename='organization.js')}}"></script>
+
+{%endblock%}

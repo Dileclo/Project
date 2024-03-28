@@ -1,0 +1,169 @@
+<div class="modal" id="AOCR" data-bs-toggle="modalAdd"  aria-hidden="true" style="overflow-y: scroll; display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Создание АОСР</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body aocr">
+                <form id='add_aocr'>
+                    <div class="mb-3">
+                        <label class="form-label">Номер акта</label>
+                        <input type="name" required id="num_act" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Дата начала работ</label>
+                        <input type="date" required id="start_date" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Дата окончания работ</label>
+                        <input type="date" required id="end_date" class="form-control">
+                    </div>
+                    <label class="form-label">Лицо выполнившее работы, подлежащие освидетельствованию</label>
+                    <div class="mb-3 input-group">
+                        <select class="Org_select" id="lico_vip_work" name="state">
+                        </select>
+                        <button type="button" id="modalOpenAdd" class="btn btn-primary open">+</button>
+                    </div>
+                    <label class="form-label">Представитель застройщика</label>
+                    <div class="mb-3 input-group">
+                        <select class="Person-select_in_ACOR" id="pred_teh_zak" name="state">
+                        </select>
+                        <button type="button" id="ModalPersons" class="btn btn-primary open_person">+</button>
+                    </div>
+                    <label class="form-label">Представитель лица, выполневших работы</label>
+                    <div class="mb-3 input-group">
+                        <select class="Person-select_in_ACOR" id="pred_vip_rab" name="state">
+                        </select>
+                        <button type="button" id="ModalPersons" class="btn btn-primary open_person">+</button>
+                    </div>
+                    <label class="form-label">Представитель лица, осуществляющего строительство</label>
+                    <div class="mb-3 input-group">
+                        <select class="Person-select_in_ACOR" id="pred_str" name="state">
+                        </select>
+                        <button type="button" id="ModalPersons" class="btn btn-primary open_person">+</button>
+                    </div>
+                    <label class="form-label">Представитель лица, осуществляющего строительство, по вопросам строительного контроля</label>
+                    <div class="mb-3 input-group">
+                        <select class="Person-select_in_ACOR" id="pred_str_control" name="state">
+                        </select>
+                        <button type="button" id="ModalPersons" class="btn btn-primary open_person">+</button>
+                    </div>
+                    <label class="form-label">Представитель лица, осуществляющего подготовку проектной документации:</label>
+                    <div class="mb-3 input-group">
+                        <select class="Person-select_in_ACOR" id="pred_proekt" name="state">
+                        </select>
+                        <button type="button" id="ModalPersons" class="btn btn-primary open_person">+</button>
+                    </div>
+                    <label class="form-label">а также иные представители лиц, участвующих в освидетельствовании:</label>
+                    <div class="mb-3 input-group">
+                        <select class="Person-select_in_ACOR" id="inie" name="state">
+                        </select>
+                        <button type="button" id="ModalPersons" class="btn btn-primary open_person">+</button>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Работа</label>
+                        <input type="name" required id="work" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Работы выполнены по проектно-сметной документации</label>
+                        <input type="name" required id="project" class="form-control">
+                    </div>
+                    <label class="form-label">Материалы</label>
+                    <div class="mb-3 input-group">
+                        <select class="Materials-select_in_ACOR" multiple="multiple" id="materials" name="state">
+                        </select>
+                        <button type="button" id="ModalPersons" class="btn btn-primary open_materials">+</button>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Предъявлены документы, подтверждающие соответствие работ предъявляемым к ним требованиям</label>
+                        <input type="name" required id="isp_scheme" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Работы выполнены в соответствии с</label>
+                        <input type="name" required id="reglaments" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Разрешается производство след. работ</label>
+                        <input type="name" required id="next_work" class="form-control">
+                    </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeAdd">Закрыть</button>
+                <input class="btn btn-primary" type="submit" name="submit" value="Добавить">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    
+    $('.Org_select').select2({
+        theme: "bootstrap-5",
+        dropdownParent: $("#AOCR"),
+        ajax: {
+            url: "/objects",
+            type: "GET",
+            dataType: 'json',
+            processResults: function (data) {
+                console.log(data)
+                return {
+
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.text,
+                            id: item.id,
+                            inn: item.inn
+                        }
+                    })
+                }
+            }
+        }
+    });
+    $('.Person-select_in_ACOR').select2({
+        theme: "bootstrap-5",
+        dropdownParent: $("#AOCR"),
+        ajax: {
+            url: "/persons",
+            type: "GET",
+            dataType: 'json',
+            processResults: function (data) {
+                console.log(data)
+                return {
+
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.text,
+                            id: item.id,
+                            dolzhnost:item.person_dolzhnost
+                        }
+                    })
+                }
+            }
+        }
+    });
+    $('.Materials-select_in_ACOR').select2({
+        theme: "bootstrap-5",
+        dropdownParent: $("#AOCR"),
+        ajax: {
+            url: "/materials",
+            type: "GET",
+            dataType: 'json',
+            processResults: function (data) {
+                console.log(data)
+                return {
+
+                    results: $.map(data, function (item) {
+                        return {
+                            text: item.text,
+                            id: item.id,
+                            doc:item.doc
+                        }
+                    })
+                }
+            }
+        }
+    });
+</script>

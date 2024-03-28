@@ -1,0 +1,71 @@
+<div class="modal" id="Person" data-bs-toggle="modalAdd" tabindex="-1" aria-hidden="true"
+    style="overflow-y: scroll; display: none;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Добавление сотрудника</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body person">
+                <form id='add_person'>
+                    <div class="mb-3">
+                        <label class="form-label">ФИО</label>
+                        <input type="name" required id="person_fio" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Должность</label>
+                        <input type="name" required id="person_dolzhnost" class="form-control">
+                    </div>
+                    <label class="form-label">Организация</label>
+                    <div class="mb-3 input-group">
+                        <select class="Person-select" id="person_org" name="state">
+                        </select>
+                        <button type="button" id="AddPerson" class="btn btn-primary open">+</button>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Приказ</label>
+                        <input type="name"  id="prikaz" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Лицензия</label>
+                        <input type="name"  id="person_licence" class="form-control">
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeAdd">Закрыть</button>
+                <input class="btn btn-primary" type="submit" name="submit" value="Добавить">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    
+    $(document).ready(function () {
+
+        $('.Person-select').select2({
+            theme: "bootstrap-5",
+            dropdownParent: $("#Person"),
+            ajax: {
+                url: "/objects",
+                type: "GET",
+                dataType: 'json',
+                processResults: function (data) {
+                    console.log(data)
+                    return {
+
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.text,
+                                id: item.id,
+                                inn: item.inn
+                            }
+                        })
+                    }
+                }
+            }
+        });
+
+    })
+</script>

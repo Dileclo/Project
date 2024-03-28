@@ -1,0 +1,66 @@
+{%extends "base.html" %}
+{%block content%}
+<div class="columns">
+    <div class="column">
+        <div class="card ">
+            <div class="card-content">
+                <div class="content">
+                    <div class="card ">
+                        <div class="card-content">
+                            <div class="content">
+                                <div class="field">
+                                    <form action="/register" method="post">
+                                    <label class="label">ФИО</label>
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input" name = 'name' id="name" required type="text" placeholder="" value="">
+                                        <span class="icon is-small is-left">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                        <p class="help"></p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">E-mail</label>
+                                        <div class="control has-icons-left has-icons-right">
+                                            <input class="input" id="email"name='email' required type="email" placeholder="" value="">
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-envelope"></i>
+                                            </span>
+                                        </div>
+                                        <p class="help"></p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Пароль</label>
+                                        <p class="control has-icons-left">
+                                            <input class="input" name = 'password' required id="pswrd" type="password" placeholder="">
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-lock"></i>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label">Повторите пароль</label>
+                                        <p class="control has-icons-left">
+                                            <input class="input" type="password" placeholder="">
+                                            <span class="icon is-small is-left">
+                                                <i class="fas fa-lock"></i>
+                                            </span>
+                                        </p>
+                                        <p class="help"></p>
+                                    </div>
+                                    <div class="field">
+                                        <p class="control">
+                                            <button id="reg" class="button is-success">
+                                                Зарегистрироваться
+                                            </button>
+                                        </p>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {%endblock%}

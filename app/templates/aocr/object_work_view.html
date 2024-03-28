@@ -1,0 +1,41 @@
+{%extends "base.html" %}
+{%block content %}
+<div class="card ">
+    <div class="card-content">
+        <div class="content">
+            <h1 class="modal-title fs-5">Объект: <label for="" id = "name_orga">{{res.name}}</label></h1></h1>
+            <h1 class="modal-title fs-5">Работа: <label for="" id = "name_worka">{{work}}</label></h1></h1>
+            <div class="card ">
+                <a class="btn btn-primary" role="button" onclick="add_aocr()">Добавить АОСР</a>
+                <div class="card-content">
+                    <div class="content">
+                        <table id="TableAOCR" class="display ">
+                            <thead>
+                                <tr>
+                                    <th>№Акта</th>
+                                    <th>Работа</th>
+                                    <th>Дата начала</th>
+                                    <th>Дата окончания</th>
+                                    <th>След работа</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body_table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%include "dbase/modals/modalAddAOCR.html"%}
+{%include "dbase/modals/modalAddOrg.html"%}
+{%include "dbase/modals/modalAddPersons.html"%}
+{%include "dbase/modals/modalAddMaterials.html"%}
+
+<script type="text/javascript" src="{{url_for('static', filename='aocr.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='organization.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='persons.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='materials.js')}}"></script>
+
+{%endblock%}

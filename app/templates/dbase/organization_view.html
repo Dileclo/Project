@@ -1,0 +1,52 @@
+{%extends "base.html" %}
+{%block content %}
+<div class="card ">
+    <div class="card-content">
+        <div class="content">
+            <div class="mb-3">
+                <label class="form-label">Наименование организации</label>
+                <input type="name" value="{{res.name}}" required id="name_org" class="form-control">
+            </div>
+            <label class="form-label">ИНН</label>
+            <div class="mb-3 input-group">
+                <input type="text" id="inn" value={{res.inn}} required maxlength="12" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ОГРН</label>
+                <input type="name" id="ogrn" value="{{res.ogrn}}" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">КПП</label>
+                <input type="name" id="kpp" value="{{res.kpp}}" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Адрес</label>
+                <input type="name" id="address" value="{{res.address}}" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">СРО</label>
+                <input type="name" id="SRO" value="{{res.SRO}}" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Св-во о регистрации</label>
+                <input type="name" id="svvoreg" value="{{res.svvo}}" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Лицензия</label>
+                <input type="name" id="licence" value="{{res.licence}}" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Тип организации</label>
+                <select class="js-example-basic-multiple" value="{{res.type}}" id="type" name="state">
+                    <option value="AL">Alabama</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" id="change" value="">Изменить</button>
+            <button class="btn btn-primary" id="delete" value="">Удалить</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{{url_for('static', filename='organization.js')}}"></script>
+
+{%endblock%}
